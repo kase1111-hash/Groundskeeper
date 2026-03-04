@@ -1,0 +1,4 @@
+dormancy_days: 90
+phantom_cycle_hours: 24
+max_blanket_repos: 5
+overprovision_lookback_days: 30

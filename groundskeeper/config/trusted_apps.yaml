@@ -1,0 +1,10 @@
+trusted:
+  github:
+    - developer: "anthropics"
+    - developer: "github"
+    - developer: "actions"
+  google:
+    - developer: "google.com"
+    - developer: "googleapis.com"
+  slack:
+    - developer: "slack"
