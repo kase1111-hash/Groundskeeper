@@ -2,14 +2,12 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import pytest
 
 from groundskeeper.core.models import (
     AccessLevel,
-    Flag,
-    FlagType,
     GrantType,
     PermissionGrant,
     ResourceAccess,
@@ -37,8 +35,8 @@ def sample_grant() -> PermissionGrant:
             resources=["repo-a", "repo-b"],
             count=2,
         ),
-        installed_at=datetime(2025, 6, 15, tzinfo=timezone.utc),
-        last_active=datetime(2026, 3, 1, tzinfo=timezone.utc),
+        installed_at=datetime(2025, 6, 15, tzinfo=UTC),
+        last_active=datetime(2026, 3, 1, tzinfo=UTC),
         status=Status.ACTIVE,
     )
 
@@ -56,8 +54,8 @@ def dormant_grant() -> PermissionGrant:
             Scope(resource="code", access=AccessLevel.READ_WRITE),
         ],
         resource_access=ResourceAccess(type="all", resources=[], count=42),
-        installed_at=datetime(2024, 1, 10, tzinfo=timezone.utc),
-        last_active=datetime(2024, 3, 5, tzinfo=timezone.utc),
+        installed_at=datetime(2024, 1, 10, tzinfo=UTC),
+        last_active=datetime(2024, 3, 5, tzinfo=UTC),
         status=Status.ACTIVE,
     )
 
@@ -75,10 +73,10 @@ def grant_with_token_activity() -> PermissionGrant:
             Scope(resource="code", access=AccessLevel.READ_WRITE),
         ],
         resource_access=ResourceAccess(type="all", resources=[], count=10),
-        installed_at=datetime(2025, 9, 1, tzinfo=timezone.utc),
-        last_active=datetime(2026, 3, 1, tzinfo=timezone.utc),
+        installed_at=datetime(2025, 9, 1, tzinfo=UTC),
+        last_active=datetime(2026, 3, 1, tzinfo=UTC),
         token_activity=TokenActivity(
-            last_refresh=datetime(2026, 3, 4, tzinfo=timezone.utc),
+            last_refresh=datetime(2026, 3, 4, tzinfo=UTC),
             refresh_count_24h=6,
             refresh_count_7d=42,
             has_user_activity=False,

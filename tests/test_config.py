@@ -43,11 +43,7 @@ class TestLoadTrustedApps:
     def test_loads_custom_entries(self, tmp_path: Path):
         trusted_file = tmp_path / "trusted_apps.yaml"
         trusted_file.write_text(
-            "trusted:\n"
-            "  github:\n"
-            "    - developer: my-org\n"
-            "  custom:\n"
-            "    - developer: custom-dev\n"
+            "trusted:\n  github:\n    - developer: my-org\n  custom:\n    - developer: custom-dev\n"
         )
         config = load_trusted_apps(config_dir=tmp_path)
         assert config.is_trusted("github", "my-org") is True
