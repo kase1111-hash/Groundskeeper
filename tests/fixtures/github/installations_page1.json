@@ -1,0 +1,54 @@
+{
+  "total_count": 4,
+  "installations": [
+    {
+      "id": 1001,
+      "account": {"login": "octocat", "id": 1, "type": "User"},
+      "repository_selection": "all",
+      "access_tokens_url": "https://api.github.com/app/installations/1001/access_tokens",
+      "repositories_url": "https://api.github.com/installation/repositories",
+      "html_url": "https://github.com/settings/installations/1001",
+      "app_id": 501,
+      "app_slug": "build-bot",
+      "target_id": 1,
+      "target_type": "User",
+      "permissions": {
+        "actions": "write",
+        "contents": "write",
+        "metadata": "read",
+        "pull_requests": "write",
+        "workflows": "write"
+      },
+      "events": ["push", "pull_request", "workflow_run"],
+      "created_at": "2025-09-01T14:02:11Z",
+      "updated_at": "2026-02-10T08:30:00Z",
+      "single_file_name": null,
+      "suspended_by": null,
+      "suspended_at": null
+    },
+    {
+      "id": 1002,
+      "account": {"login": "octocat", "id": 1, "type": "User"},
+      "repository_selection": "selected",
+      "access_tokens_url": "https://api.github.com/app/installations/1002/access_tokens",
+      "repositories_url": "https://api.github.com/installation/repositories",
+      "html_url": "https://github.com/settings/installations/1002",
+      "app_id": 502,
+      "app_slug": "review-helper",
+      "target_id": 1,
+      "target_type": "User",
+      "permissions": {
+        "contents": "read",
+        "issues": "write",
+        "metadata": "read",
+        "pull_requests": "write"
+      },
+      "events": ["pull_request", "pull_request_review"],
+      "created_at": "2025-06-15T10:00:00Z",
+      "updated_at": "2025-11-03T16:45:12Z",
+      "single_file_name": null,
+      "suspended_by": null,
+      "suspended_at": null
+    }
+  ]
+}

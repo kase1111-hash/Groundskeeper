@@ -1,0 +1,14 @@
+{
+  "total_count": 42,
+  "repository_selection": "all",
+  "repositories": [
+    {
+      "id": 1296269,
+      "name": "Hello-World",
+      "full_name": "octocat/Hello-World",
+      "private": false,
+      "owner": {"login": "octocat", "id": 1, "type": "User"},
+      "html_url": "https://github.com/octocat/Hello-World"
+    }
+  ]
+}

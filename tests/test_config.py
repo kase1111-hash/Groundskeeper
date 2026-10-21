@@ -43,13 +43,24 @@ class TestLoadTrustedApps:
     def test_loads_custom_entries(self, tmp_path: Path):
         trusted_file = tmp_path / "trusted_apps.yaml"
         trusted_file.write_text(
-            "trusted:\n"
-            "  github:\n"
-            "    - developer: my-org\n"
-            "  custom:\n"
-            "    - developer: custom-dev\n"
+            "trusted:\n  github:\n    - developer: my-org\n  custom:\n    - developer: custom-dev\n"
         )
         config = load_trusted_apps(config_dir=tmp_path)
         assert config.is_trusted("github", "my-org") is True
         assert config.is_trusted("custom", "custom-dev") is True
         assert config.is_trusted("github", "anthropics") is False
+
+    def test_platform_with_all_entries_commented_out(self, tmp_path: Path):
+        trusted_file = tmp_path / "trusted_apps.yaml"
+        trusted_file.write_text(
+            "trusted:\n  github:\n  #  - developer: old-app\n  google:\n    - developer: google.com\n"
+        )
+        config = load_trusted_apps(config_dir=tmp_path)
+        assert config.trusted["github"] == []
+        assert config.is_trusted("google", "google.com") is True
+
+    def test_trusted_key_with_no_platforms(self, tmp_path: Path):
+        trusted_file = tmp_path / "trusted_apps.yaml"
+        trusted_file.write_text("trusted:\n")
+        config = load_trusted_apps(config_dir=tmp_path)
+        assert config.trusted == {}

@@ -30,7 +30,9 @@ def scan(platform: str | None, flagged: bool, output_format: str, quiet: bool) -
 
 
 @cli.command()
-@click.option("--output", "output_path", default=None, type=click.Path(), help="Write report to file.")
+@click.option(
+    "--output", "output_path", default=None, type=click.Path(), help="Write report to file."
+)
 @click.option("--platform", default=None, help="Scope report to a specific platform.")
 @click.option("--include-clean", is_flag=True, help="Include unflagged grants in report.")
 def report(output_path: str | None, platform: str | None, include_clean: bool) -> None:

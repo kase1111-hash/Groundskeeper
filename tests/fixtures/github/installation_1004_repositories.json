@@ -1,0 +1,22 @@
+{
+  "total_count": 2,
+  "repository_selection": "selected",
+  "repositories": [
+    {
+      "id": 2002,
+      "name": "api",
+      "full_name": "octo-org/api",
+      "private": true,
+      "owner": {"login": "octo-org", "id": 2, "type": "Organization"},
+      "html_url": "https://github.com/octo-org/api"
+    },
+    {
+      "id": 2003,
+      "name": "web",
+      "full_name": "octo-org/web",
+      "private": true,
+      "owner": {"login": "octo-org", "id": 2, "type": "Organization"},
+      "html_url": "https://github.com/octo-org/web"
+    }
+  ]
+}

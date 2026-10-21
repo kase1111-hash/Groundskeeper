@@ -27,9 +27,10 @@ def load_trusted_apps(config_dir: Path | None = None) -> TrustedAppsConfig:
     if path.exists():
         with open(path) as f:
             data = yaml.safe_load(f) or {}
-        trusted_raw = data.get("trusted", {})
+        # A key whose entries are all commented out parses as None, not an empty list.
+        trusted_raw = data.get("trusted") or {}
         trusted = {
-            platform: [TrustedDeveloper(**entry) for entry in devs]
+            platform: [TrustedDeveloper(**entry) for entry in devs or []]
             for platform, devs in trusted_raw.items()
         }
         return TrustedAppsConfig(trusted=trusted)

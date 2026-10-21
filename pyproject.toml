@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68.0", "wheel"]
+requires = ["setuptools>=77.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -28,6 +28,9 @@ dev = [
 
 [project.scripts]
 groundskeeper = "groundskeeper.groundskeeper:cli"
+
+[tool.setuptools.package-data]
+groundskeeper = ["config/*.yaml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

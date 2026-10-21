@@ -1,0 +1,20 @@
+{
+  "id": 502,
+  "slug": "review-helper",
+  "node_id": "MDM6QXBwNTAy",
+  "client_id": "Iv1.4f2c8d9e0b1a3c5d",
+  "owner": {"login": "reviewco", "id": 9002, "type": "Organization"},
+  "name": "Review Helper",
+  "description": "Comments on pull requests.",
+  "external_url": "https://reviewco.example.com",
+  "html_url": "https://github.com/apps/review-helper",
+  "created_at": "2023-11-11T09:00:00Z",
+  "updated_at": "2025-01-20T12:00:00Z",
+  "permissions": {
+    "contents": "read",
+    "issues": "write",
+    "metadata": "read",
+    "pull_requests": "write"
+  },
+  "events": ["pull_request", "pull_request_review"]
+}

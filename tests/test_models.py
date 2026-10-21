@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from groundskeeper.core.models import (
     AccessLevel,
@@ -116,7 +116,7 @@ class TestPermissionGrant:
             grant_type=GrantType.OAUTH_APP,
             scopes=[Scope(resource="code", access=AccessLevel.READ)],
             resource_access=ResourceAccess(type="none"),
-            installed_at=datetime(2025, 1, 1, tzinfo=timezone.utc),
+            installed_at=datetime(2025, 1, 1, tzinfo=UTC),
         )
         assert grant.status == Status.ACTIVE
         assert grant.flags == []
@@ -165,7 +165,7 @@ class TestPermissionGrant:
             grant_type=GrantType.PAT,
             scopes=[],
             resource_access=ResourceAccess(type="none"),
-            installed_at=datetime(2025, 1, 1, tzinfo=timezone.utc),
+            installed_at=datetime(2025, 1, 1, tzinfo=UTC),
             metadata={"note": "classic token", "expires": "2026-01-01"},
         )
         data = grant.model_dump(mode="json")
@@ -201,9 +201,7 @@ class TestTrustedAppsConfig:
         assert config.is_trusted("github", "github") is True
 
     def test_is_trusted_not_found(self):
-        config = TrustedAppsConfig(
-            trusted={"github": [TrustedDeveloper(developer="github")]}
-        )
+        config = TrustedAppsConfig(trusted={"github": [TrustedDeveloper(developer="github")]})
         assert config.is_trusted("github", "unknown-dev") is False
 
     def test_is_trusted_unknown_platform(self):
@@ -218,7 +216,7 @@ class TestTrustedAppsConfig:
 class TestAuditEvent:
     def test_create(self):
         event = AuditEvent(
-            timestamp=datetime(2026, 3, 1, tzinfo=timezone.utc),
+            timestamp=datetime(2026, 3, 1, tzinfo=UTC),
             action="integration_installation.create",
             actor="user123",
             target="repo-a",
@@ -229,7 +227,7 @@ class TestAuditEvent:
 
     def test_optional_fields(self):
         event = AuditEvent(
-            timestamp=datetime(2026, 3, 1, tzinfo=timezone.utc),
+            timestamp=datetime(2026, 3, 1, tzinfo=UTC),
             action="token.refresh",
             actor="system",
         )
