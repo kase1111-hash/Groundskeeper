@@ -17,6 +17,27 @@ from groundskeeper.core.models import (
 )
 
 
+def pytest_addoption(parser: pytest.Parser) -> None:
+    parser.addoption(
+        "--run-integration",
+        action="store_true",
+        help="Run integration tests against live platform APIs (needs real credentials).",
+    )
+
+
+def pytest_configure(config: pytest.Config) -> None:
+    config.addinivalue_line("markers", "integration: calls a live platform API")
+
+
+def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
+    if config.getoption("--run-integration"):
+        return
+    skip = pytest.mark.skip(reason="needs --run-integration")
+    for item in items:
+        if "integration" in item.keywords:
+            item.add_marker(skip)
+
+
 @pytest.fixture
 def sample_grant() -> PermissionGrant:
     """A typical GitHub installed app grant for use in tests."""
