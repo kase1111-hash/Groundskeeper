@@ -1,0 +1,14 @@
+{
+  "total_count": 1,
+  "repository_selection": "selected",
+  "repositories": [
+    {
+      "id": 2001,
+      "name": "legacy-service",
+      "full_name": "octo-org/legacy-service",
+      "private": true,
+      "owner": {"login": "octo-org", "id": 2, "type": "Organization"},
+      "html_url": "https://github.com/octo-org/legacy-service"
+    }
+  ]
+}

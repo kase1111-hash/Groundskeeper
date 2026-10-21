@@ -1,0 +1,14 @@
+{
+  "total_count": 3,
+  "repository_selection": "selected",
+  "repositories": [
+    {
+      "id": 1725199,
+      "name": "linguist",
+      "full_name": "octocat/linguist",
+      "private": false,
+      "owner": {"login": "octocat", "id": 1, "type": "User"},
+      "html_url": "https://github.com/octocat/linguist"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "total_count": 3,
+  "repository_selection": "selected",
+  "repositories": [
+    {
+      "id": 1296269,
+      "name": "Hello-World",
+      "full_name": "octocat/Hello-World",
+      "private": false,
+      "owner": {"login": "octocat", "id": 1, "type": "User"},
+      "html_url": "https://github.com/octocat/Hello-World"
+    },
+    {
+      "id": 1300192,
+      "name": "Spoon-Knife",
+      "full_name": "octocat/Spoon-Knife",
+      "private": false,
+      "owner": {"login": "octocat", "id": 1, "type": "User"},
+      "html_url": "https://github.com/octocat/Spoon-Knife"
+    }
+  ]
+}

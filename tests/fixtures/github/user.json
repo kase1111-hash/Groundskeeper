@@ -1,0 +1,11 @@
+{
+  "login": "octocat",
+  "id": 1,
+  "node_id": "MDQ6VXNlcjE=",
+  "type": "User",
+  "site_admin": false,
+  "name": "The Octocat",
+  "public_repos": 8,
+  "created_at": "2011-01-25T18:44:36Z",
+  "updated_at": "2026-01-14T09:12:00Z"
+}
